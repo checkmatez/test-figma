@@ -8,6 +8,68 @@ const pageTitle = 'About Me - Nika Churikova';
 ---
 
 <MainLayout title={pageTitle}>
+  <!-- Desktop version -->
+  <div class="desktop-container">
+    <main class="container">
+      <Logo />
+      <div class="content">
+        <div class="info-section">
+          <h1 class="page-title">about me</h1>
+          <div class="greeting-desktop">Всем привет ;)</div>
+
+          <div class="content-section">
+            <p class="introduction">
+              Я — Ника, лингвист-переводчик, преподаватель английского для
+              взрослых и подростков от ~14 лет.
+            </p>
+
+            <p class="education">
+              Образование: СГСПУ, Направление «Перевод и переводоведение».
+            </p>
+
+            <p class="qualification">
+              Сдала экзамены FCE и CAE — уровни Upper-intermediate (B2) и
+              Advanced (С1) и регулярно прохожу курсы повышения квалификации.
+            </p>
+
+            <p class="help-list">
+              помогу: — заговорить на современном английском языке, — побороть
+              языковой барьер, — понимать речь на слух, — свободно формулировать
+              мысли, — изучить грамматику.
+            </p>
+
+            <p class="biography">
+              Моё вдохновение — это путешествия и погружение в разные культуры.
+              На сегодняшний день я посетила 27 стран и мне есть, о чём
+              рассказать. Сотрудничала с FIFA и Coca-Cola на Чемпионате мира по
+              футболу 2018. Говорю на французском и немецком, изучаю греческий.
+            </p>
+
+            <p>Переехала из Самары и живу на солнечном Кипре.</p>
+          </div>
+
+          <div class="testimonials-button">
+            <span class="testimonials-text">отзывы студентов</span>
+          </div>
+
+          <NavMenu />
+        </div>
+        <div class="image-section">
+          <div class="image-container">
+            <div class="image-background"></div>
+            <img
+              src="/images/about-image-1.jpg"
+              alt="Nika Churikova"
+              class="profile-image"
+            />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  </div>
+
+  <!-- Mobile version -->
   <div class="mobile-container">
     <main class="container">
       <Logo isMobile={true} />
@@ -75,6 +137,7 @@ const pageTitle = 'About Me - Nika Churikova';
 </MainLayout>
 
 <style>
+  /* Common styles */
   .container {
     width: 100%;
     max-width: 1200px;
@@ -92,6 +155,109 @@ const pageTitle = 'About Me - Nika Churikova';
     line-height: 1;
     letter-spacing: -2px;
     margin: 20px 0;
+  }
+
+  .testimonials-button {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+    border: 1px solid var(--text-color);
+    margin: 20px 0;
+    cursor: pointer;
+  }
+
+  .testimonials-text {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.3;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .education {
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .help-list {
+    white-space: pre-line;
+  }
+
+  /* Desktop styles */
+  .desktop-container {
+    display: none;
+  }
+
+  .content {
+    display: flex;
+    flex: 1;
+    gap: 40px;
+  }
+
+  .info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .greeting-desktop {
+    font-family: var(--script-font);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: right;
+  }
+
+  .image-section {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 170px;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image-background {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue-light);
+    z-index: -1;
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Mobile styles */
+  .mobile-container {
+    display: none;
   }
 
   .greeting {
@@ -120,51 +286,37 @@ const pageTitle = 'About Me - Nika Churikova';
     object-fit: cover;
   }
 
-  .content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 12px;
-    line-height: 1.3;
-    font-weight: 400;
-    margin: 0;
-  }
-
-  .education {
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  .help-list {
-    white-space: pre-line;
-  }
-
-  .testimonials-button {
-    width: 100%;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--background-color);
-    border: 1px solid var(--text-color);
-    margin: 20px 0;
-    cursor: pointer;
-  }
-
-  .testimonials-text {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
-  /* For future desktop version */
+  /* Media Queries */
   @media (min-width: 769px) {
+    .desktop-container {
+      display: block;
+    }
+
+    .info-section .page-title {
+      margin-top: 0;
+    }
+
+    .container {
+      padding: 30px 40px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .testimonials-button {
+      width: 220px;
+    }
+
+    .testimonials-text {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 768px) {
     .mobile-container {
-      display: none;
+      display: block;
     }
   }
 </style>
