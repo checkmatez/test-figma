@@ -1,0 +1,104 @@
+---
+// Footer.astro
+const socialLinks = [
+  { name: 'instagram', url: '#' },
+  { name: 'telegram', url: '#' },
+  { name: 'whatsapp', url: '#' },
+];
+
+const currentYear = new Date().getFullYear();
+
+interface Props {
+  isMobile?: boolean;
+}
+
+const { isMobile = false } = Astro.props;
+---
+
+<footer class={isMobile ? 'mobile-footer' : 'desktop-footer'}>
+  <div class="footer-content">
+    <div class="copyright">©{currentYear} nika churikova</div>
+    <div class="social-links">
+      {
+        socialLinks.map((link, index) => (
+          <>
+            <a href={link.url} class="social-link">
+              {link.name}
+            </a>
+            {index < socialLinks.length - 1 && <span class="separator" />}
+          </>
+        ))
+      }
+    </div>
+  </div>
+  <div class="footer-line"></div>
+</footer>
+
+<style>
+  footer {
+    width: 100%;
+    padding: 20px 0;
+    margin-top: auto;
+  }
+
+  .desktop-footer {
+    padding: 30px 0;
+  }
+
+  .mobile-footer {
+    padding: 20px 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .desktop-footer .footer-content {
+    padding: 0 40px;
+  }
+
+  .copyright,
+  .social-link {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .social-link {
+    transition: opacity 0.2s ease;
+  }
+
+  .social-link:hover {
+    opacity: 0.7;
+  }
+
+  .separator {
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background-color: var(--text-color);
+    margin: 0 10px;
+  }
+
+  .footer-line {
+    height: 1px;
+    width: 100%;
+    background-color: var(--text-color);
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .copyright,
+    .social-link {
+      font-size: 11px;
+    }
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+// Logo.astro
+interface Props {
+  isMobile?: boolean;
+}
+
+const { isMobile = false } = Astro.props;
+---
+
+<div class={`logo ${isMobile ? 'mobile-logo' : 'desktop-logo'}`}>
+  <h2 class="logo-text">Personal English tutor</h2>
+</div>
+
+<style>
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .desktop-logo {
+    margin-bottom: 20px;
+  }
+
+  .mobile-logo {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .logo-text {
+      font-size: 14px;
+    }
+  }
+</style>
