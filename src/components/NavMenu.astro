@@ -1,10 +1,10 @@
 ---
 // NavMenu.astro
 const items = [
-  { name: 'about me', color: 'var(--pink)' },
-  { name: 'classes', color: 'var(--yellow)' },
-  { name: 'schedule and booking', color: 'var(--blue)' },
-  { name: 'faq', color: 'var(--red)' },
+  { name: 'about me', color: 'var(--pink)', path: '/about' },
+  { name: 'classes', color: 'var(--yellow)', path: '/classes' },
+  { name: 'schedule and booking', color: 'var(--blue)', path: '/booking' },
+  { name: 'faq', color: 'var(--red)', path: '/faq' },
 ];
 
 interface Props {
@@ -12,34 +12,60 @@ interface Props {
 }
 
 const { isMobile = false } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+// Function to check if a path is active
+const isActive = (path: string) => {
+  return currentPath === path || (path !== '/' && currentPath.startsWith(path));
+};
 ---
 
 {
   isMobile ? (
     <div class="mobile-menu">
       <div class="mobile-menu-row">
-        <div class="menu-item" style={`background-color: ${items[0].color}`}>
+        <a
+          href={items[0].path}
+          class={`menu-item ${isActive(items[0].path) ? 'active' : ''}`}
+          style={`background-color: ${items[0].color}`}
+        >
           <span class="menu-text">{items[0].name.split(' ')[0]}</span>
-        </div>
-        <div class="menu-item" style={`background-color: ${items[1].color}`}>
+        </a>
+        <a
+          href={items[1].path}
+          class={`menu-item ${isActive(items[1].path) ? 'active' : ''}`}
+          style={`background-color: ${items[1].color}`}
+        >
           <span class="menu-text">{items[1].name}</span>
-        </div>
+        </a>
       </div>
       <div class="mobile-menu-row">
-        <div class="menu-item" style={`background-color: ${items[3].color}`}>
+        <a
+          href={items[3].path}
+          class={`menu-item ${isActive(items[3].path) ? 'active' : ''}`}
+          style={`background-color: ${items[3].color}`}
+        >
           <span class="menu-text">{items[3].name}</span>
-        </div>
-        <div class="menu-item" style={`background-color: ${items[2].color}`}>
+        </a>
+        <a
+          href={items[2].path}
+          class={`menu-item ${isActive(items[2].path) ? 'active' : ''}`}
+          style={`background-color: ${items[2].color}`}
+        >
           <span class="menu-text">booking</span>
-        </div>
+        </a>
       </div>
     </div>
   ) : (
     <nav class="desktop-menu">
       {items.map((item) => (
-        <div class="menu-item" style={`background-color: ${item.color}`}>
+        <a
+          href={item.path}
+          class={`menu-item ${isActive(item.path) ? 'active' : ''}`}
+          style={`background-color: ${item.color}`}
+        >
           <span class="menu-text">{item.name}</span>
-        </div>
+        </a>
       ))}
     </nav>
   )
@@ -74,11 +100,19 @@ const { isMobile = false } = Astro.props;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+    text-decoration: none;
   }
 
   .menu-item:hover {
     transform: translateY(-2px);
+  }
+
+  .menu-item.active {
+    opacity: 0.85;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
 
   .menu-text {

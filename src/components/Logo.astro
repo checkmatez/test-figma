@@ -8,7 +8,9 @@ const { isMobile = false } = Astro.props;
 ---
 
 <div class={`logo ${isMobile ? 'mobile-logo' : 'desktop-logo'}`}>
-  <h2 class="logo-text">Personal English tutor</h2>
+  <a href="/" class="logo-link">
+    <h2 class="logo-text">Personal English tutor</h2>
+  </a>
 </div>
 
 <style>
@@ -24,6 +26,11 @@ const { isMobile = false } = Astro.props;
   .mobile-logo {
     margin-top: 15px;
     margin-bottom: 10px;
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
   }
 
   .logo-text {

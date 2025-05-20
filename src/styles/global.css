@@ -3,6 +3,9 @@
 /* Import Golos Text font */
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap');
 
+/* Import a script font (Satisfy) as a fallback for Mateur */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 :root {
   /* Colors */
   --background-color: #F2F1EB;
@@ -14,6 +17,7 @@
   
   /* Font settings */
   --font-family: 'Golos Text', sans-serif;
+  --script-font: 'Mateur', 'Satisfy', cursive; /* Use Satisfy as a fallback */
 }
 
 * {
