@@ -10,12 +10,15 @@
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui"
   },
   "dependencies": {
     "astro": "^3.6.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
     "@typescript-eslint/parser": "^6.13.1",
     "eslint": "^8.54.0",
     "eslint-plugin-astro": "^0.29.1",

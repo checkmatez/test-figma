@@ -21,17 +21,18 @@
 ## Getting Help
 
 - when using any package or library, YOU MUST first consult context7 MCP for up-to-date documentation on what you are about to use
+- Before installing any npm package or library consult context7 first for up-to-date docs
 - YOU MUST ALWAYS ask for clarification rather than making assumptions.
 - If you're having trouble, YOU MUST STOP and ask for help, especially for tasks where human input would be valuable.
 
 ## Testing
 
-- Tests MUST comprehensively cover ALL implemented functionality. 
+- Tests MUST comprehensively cover ALL implemented functionality.
 - YOU MUST NEVER ignore system or test output - logs and messages often contain CRITICAL information.
 - Test output MUST BE PRISTINE TO PASS.
 - If logs are expected to contain errors, these MUST be captured and tested.
 - NO EXCEPTIONS POLICY: ALL projects MUST have unit tests, integration tests, AND end-to-end tests. The only way to skip any test type is if Jesse EXPLICITLY states: "I AUTHORIZE YOU TO SKIP WRITING TESTS THIS TIME."
-- test files should be named in the format "*.spec.ts" and placed in src alongside actual code.
+- test files should be named in the format "\*.spec.ts" and placed in src alongside actual code.
 
 ## Test-Driven Development (TDD)
 
@@ -47,7 +48,6 @@ We practice strict TDD. This means:
 ## Compliance Check
 
 Before submitting any work, verify that you have followed ALL guidelines above. If you find yourself considering an exception to ANY rule, YOU MUST STOP and get explicit permission first.
-
 
 ## Tools
 
